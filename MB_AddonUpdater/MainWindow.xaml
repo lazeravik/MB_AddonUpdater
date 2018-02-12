@@ -3,10 +3,51 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MusicBeePlugin"
-        mc:Ignorable="d"
-        Title="Addon Updater" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+		mc:Ignorable="d"
+        Title="Addon Updater" Height="604" Width="891" Topmost="True">
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary 
+                  Source="Styles.xaml">
+				</ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+	<Grid Background="#FF1E2127">
+		<Border BorderThickness="10,0,0,0" Margin="10,10,10,0" VerticalAlignment="Top" Background="#FF762000" BorderBrush="Red" Height="52">
+			<TextBlock TextWrapping="Wrap" Text="Some add-ons might not show! Only supported add-ons are shown below. You can contact the add-on developer and ask them to add updating compatability" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+		</Border>
+		<TabControl Margin="10,73,10,10" Padding="0" BorderBrush="{x:Null}" BorderThickness="0" Background="{x:Null}">
+			<TabItem Header="Installed Add-ons" Margin="-2,-2,-2,0" Style="{DynamicResource tabHdr}" Background="{x:Null}" Padding="10,2,6,2">
+				<Grid Background="#FFE5E5E5">
+					<ListView x:Name="addonListView" BorderThickness="1" SelectionMode="Single" Background="#FF292929" Foreground="White" BorderBrush="#FFA6A6A6" Padding="0" UseLayoutRounding="False" HorizontalContentAlignment="Stretch" >
+						<ListView.Resources>
+							<Style x:Key="StretchedHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+								<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+							</Style>
+						</ListView.Resources>
+						<ListView.View>
+							<GridView AllowsColumnReorder="False"  ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
+								<GridViewColumn Width="50" Header="Id" DisplayMemberBinding="{Binding Id}" />
+								<GridViewColumn Width="175" Header="Name"  DisplayMemberBinding="{Binding Name}" />
+								<GridViewColumn Width="100" Header="Author"  DisplayMemberBinding="{Binding AuthorName}" />
+								<GridViewColumn Width="100" Header="Category"  DisplayMemberBinding="{Binding Category}" />
+								<GridViewColumn Width="180" Header="Last Update Date" DisplayMemberBinding="{Binding UpdateDate}" />
+								<GridViewColumn Width="120" Header="Available Version" DisplayMemberBinding="{Binding AvailableVersion}" />
+								<GridViewColumn Width="120" Header="Update Available?" DisplayMemberBinding="{Binding UpdateStatus}" />
+
+							</GridView>
+						</ListView.View>
+					</ListView>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Ignored Add-ons" Margin="1,-2,-2,0" Style="{DynamicResource tabHdr}" Background="{x:Null}">
+				<Grid>
+					<Border BorderBrush="#FFA6A6A6" BorderThickness="1"/>
+				</Grid>
+			</TabItem>
+		</TabControl>
+
+	</Grid>
 </Window>
