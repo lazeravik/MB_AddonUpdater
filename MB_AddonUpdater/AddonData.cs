@@ -15,7 +15,9 @@ namespace MusicBeePlugin
 		public string UpdateDate { get; set; }
 		public string UpdateStatus { get; set; }
 		public string UpdateState { get; set; }
-
 		public string AvailableVersion { get; set; }
+		public string IgnoreUpdate { get; set; }
+
+		public string InstalledLocation { get; set; }
 	}
 }
