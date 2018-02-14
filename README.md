@@ -6,8 +6,8 @@ A very early build of MusicBee add-on updater. This is not meant to be used as y
 
 ### TODO
 
-- [ ] Finalizing the XML manifest structure.
-- [ ] Get all installed add-ons that have XML manifest file.
+- [x] Finalizing the XML manifest structure.
+- [x] Get all installed add-ons that have XML manifest file.
 - [ ] Check if a new version available and notify the user.
 - [ ] Added ability to ignore update notification for certain add-ons.
 
